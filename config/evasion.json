@@ -1,0 +1,19 @@
+{
+    "timingEvasion": {
+        "enableRandomSleep": true,
+        "minSleepMillis": 100,
+        "maxSleepMillis": 1000,
+        "enableGradualSleep": true,
+        "gradualSleepSteps": 5
+    },
+    "processEvasion": {
+        "avoidHighProfileProcesses": true,
+        "highProfileProcessesThreshold": 80
+    },
+    "injectionEvasion": {
+        "useReflectiveDllInjection": true,
+        "useApcInjection": true,
+        "useProcessHollowing": false,
+        "useProcessDoppelganging": false
+    }
+}
