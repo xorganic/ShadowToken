@@ -1,0 +1,18 @@
+{
+    "highProfileProcesses": [
+        "lsass.exe",
+        "csrss.exe",
+        "wininit.exe",
+        "winlogon.exe",
+        "explorer.exe",
+        "svchost.exe",
+        "msmpeng.exe"
+    ],
+    "lowProfileProcesses": [
+        "notepad.exe",
+        "calc.exe",
+        "conhost.exe",
+        "taskhostw.exe",
+        "RuntimeBroker.exe"
+    ]
+}
