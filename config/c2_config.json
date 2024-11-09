@@ -1,0 +1,16 @@
+{
+    "c2Method": "http",
+    "c2Address": "c2.example.com",
+    "c2Port": 443,
+    "beaconIntervalSeconds": 60,
+    "httpConfig": {
+        "useHttps": true,
+        "beaconEndpoint": "/beacon",
+        "commandEndpoint": "/command"
+    },
+    "dnsConfig": {
+        "domain": "c2dns.example.com",
+        "recordType": "TXT",
+        "queryIntervalSeconds": 120
+    }
+}
