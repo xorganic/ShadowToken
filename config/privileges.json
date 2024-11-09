@@ -1,0 +1,15 @@
+{
+    "requiredPrivileges": [
+        "SeDebugPrivilege",
+        "SeImpersonatePrivilege",
+        "SeTcbPrivilege",
+        "SeAssignPrimaryTokenPrivilege",
+        "SeIncreaseQuotaPrivilege",
+        "SeLoadDriverPrivilege"
+    ],
+    "optionalPrivileges": [
+        "SeBackupPrivilege",
+        "SeRestorePrivilege",
+        "SeShutdownPrivilege"
+    ]
+}
