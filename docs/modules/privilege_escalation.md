@@ -59,4 +59,5 @@ Utilizați EscalateToSystem pentru a obține drepturi SYSTEM doar în momentele 
 Activează bypass-ul UAC în scenarii în care escaladarea este absolut necesară, fără a trezi suspiciuni.
 ## Referințe
 [Documentație Microsoft pentru Privilege Escalation](https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens)
+
 [Mastering the Art of Bypassing Windows UAC](https://hadess.io/user-account-control-uncontrol-mastering-the-art-of-bypassing-windows-uac/)
