@@ -19,7 +19,7 @@ HANDLE processToken;
 OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY | TOKEN_DUPLICATE, &processToken);
 ```
 
-###2. Syscall Wrappers
+### 2. Syscall Wrappers
 Pentru a evita detectarea prin utilizarea funcțiilor API Windows monitorizate, ShadowToken folosește syscall-uri directe pentru a accesa resursele de sistem.
 
 OpenProcessSyscall: Oferă acces direct la funcția de deschidere a proceselor, fără a depinde de API-ul Windows OpenProcess.
@@ -44,6 +44,6 @@ Pentru a optimiza utilizarea funcțiilor din acest modul:
 Utilizați funcția EscalateToSystem doar atunci când sunt necesare permisiuni SYSTEM.
 Folosiți syscall_wrappers în locul API-urilor standard pentru a evita monitorizarea și detectarea.
 
-##Referințe
+## Referințe
 Documentația Microsoft pentru token-urile de acces
 Windows Syscalls - Resurse și exemple
