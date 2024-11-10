@@ -43,7 +43,8 @@ Permite bypass-ul UAC prin deturnarea Event Viewer-ului pentru a lansa ShadowTok
 Parametri: Niciunul.
 Returnează: true dacă bypass-ul reușește, false în caz contrar.
 ```cpp
-
+// Exemplu de utilizare
+bool bypassSuccess = privilegeEscalator.BypassUAC_EventViewer();
 ```
 ## Structura Modulului
 Principalele fișiere ale acestui modul sunt:
@@ -58,3 +59,4 @@ Utilizați EscalateToSystem pentru a obține drepturi SYSTEM doar în momentele 
 Activează bypass-ul UAC în scenarii în care escaladarea este absolut necesară, fără a trezi suspiciuni.
 ## Referințe
 [Documentație Microsoft pentru Privilege Escalation](https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens)
+[Mastering the Art of Bypassing Windows UAC](https://hadess.io/user-account-control-uncontrol-mastering-the-art-of-bypassing-windows-uac/)
