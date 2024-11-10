@@ -40,5 +40,4 @@ create_remote_thread_wrapper.cpp: Wrapper pentru syscall-ul CreateRemoteThread.
 duplicate_token_ex_wrapper.cpp: Implementarea funcției pentru duplicarea token-urilor de acces.
 ## Importanța Wrapper-elor API
 Wrapper-ele API sunt esențiale pentru a asigura compatibilitatea ShadowToken pe sistemele moderne de operare și pentru a permite tool-ului să utilizeze syscall-uri în locul apelurilor directe către API-urile monitorizate. Astfel, aceste funcții ajută la reducerea riscului de detectare în medii cu securitate avansată.
-
-[Windows API Documentation]([https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens](https://learn.microsoft.com/en-us/windows/win32/api/)
+- [Documentația Microsoft API Windows](https://learn.microsoft.com/en-us/windows/win32/api/)
