@@ -45,5 +45,8 @@ Utilizați funcția EscalateToSystem doar atunci când sunt necesare permisiuni 
 Folosiți syscall_wrappers în locul API-urilor standard pentru a evita monitorizarea și detectarea.
 
 ## Referințe
-Documentația Microsoft pentru token-urile de acces
-Windows Syscalls - Resurse și exemple
+- [Documentația Microsoft pentru token-urile de acces](https://learn.microsoft.com/en-us/windows/win32/secauthz/access-tokens)
+- [Documentația Microsoft API Windows](https://learn.microsoft.com/en-us/windows/win32/api/)
+
+
+
