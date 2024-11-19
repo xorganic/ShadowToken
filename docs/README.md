@@ -1,7 +1,7 @@
 # ShadowToken
 
 ## General Description
-ShadowToken is an advanced red teaming tool designed for privilege escalation and detection evasion in a stealthy manner. The tool relies on token manipulation and fileless injections, utilizing Windows APIs, syscalls, persistence techniques, C2 communication, and UAC bypass methods. ShadowToken enables operation in secure environments by carefully selecting processes and adjusting privileges to avoid detection solutions.
+ShadowToken is designed for privilege escalation and detection evasion in a stealthy manner. The tool relies on token manipulation and fileless injections, utilizing Windows APIs, syscalls, persistence techniques, C2 communication, and UAC bypass methods. ShadowToken enables operation in secure environments by carefully selecting processes and adjusting privileges to avoid detection solutions.
 
 ## Project Structure
 The project structure includes the following essential modules:
