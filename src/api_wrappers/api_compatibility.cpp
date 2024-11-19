@@ -44,7 +44,7 @@ namespace ShadowToken {
 
             TOKEN_PRIVILEGES tp;
             LUID luid;
-            if (!LookupPrivilegeValue(nullptr, privilege.c_str(), &luid)) {
+            if (!LookupPrivilegeValueW(nullptr, privilege.c_str(), &luid)) {
                 std::cerr << "[Error] Nu s-a găsit privilegiul specificat: " << GetLastError() << std::endl;
                 CloseHandle(token);
                 return false;
