@@ -2,7 +2,7 @@
 nlohmann-json==3.11.2
 
 # HTTP requests (if your C2 backend uses Python for communication testing)
-requests==2.31.0
+requests==2.32.2
 
 # YAML support (if using YAML configuration files)
 pyyaml==6.0
