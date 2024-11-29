@@ -1,8 +1,8 @@
 {
     "timingEvasion": {
         "enableRandomSleep": true,
-        "minSleepMillis": 100,
-        "maxSleepMillis": 1000,
+        "minSleepMillis": 3000,
+        "maxSleepMillis": 10000,
         "enableGradualSleep": true,
         "gradualSleepSteps": 5
     },
