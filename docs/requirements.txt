@@ -1,0 +1,15 @@
+# JSON processing library
+nlohmann-json==3.11.2
+
+# HTTP requests (if your C2 backend uses Python for communication testing)
+requests==2.31.0
+
+# YAML support (if using YAML configuration files)
+pyyaml==6.0
+
+# Command-line argument parsing
+argparse==1.4.0
+
+# Additional libraries if needed for testing or auxiliary tools
+paramiko==3.2.0  # For SSH-related tasks
+pycryptodome==3.17  # For cryptographic operations
