@@ -11,5 +11,5 @@ pyyaml==6.0
 argparse==1.4.0
 
 # Additional libraries if needed for testing or auxiliary tools
-paramiko==3.2.0  # For SSH-related tasks
+paramiko==3.4.0  # For SSH-related tasks
 pycryptodome==3.17  # For cryptographic operations
