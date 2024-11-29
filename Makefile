@@ -10,7 +10,7 @@ OBJ_DIR := obj
 BIN_DIR := bin
 
 # Fisierele sursa si obiect
-SOURCES := $(wildcard $(SRC_DIR)/**/*.cpp)
+SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
 # Executabilul rezultat
